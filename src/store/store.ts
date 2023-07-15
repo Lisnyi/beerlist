@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { getBeers } from '../api'
+import type { Beer } from '../types'
 
 interface BeerState {
-    beerList: Object[],
+    beerList: Array<Beer> | [],
     loading: boolean,
     hasErrors: boolean,
     page: number,
