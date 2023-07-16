@@ -1,4 +1,5 @@
 import { FC, MouseEvent, useState } from 'react'
+import { useBeerStore } from '../../../store'
 import type { Beer } from '../../../types'
 import Checkmark from '../../../assets/checkmark.svg'
 import Delete from '../../../assets/delete.svg'
@@ -12,7 +13,8 @@ export const BeerListItem: FC<Props> = ({item}) => {
   
   const [selected, setSelected] = useState(false)
   const [isHover, setIsHover] = useState(false)
-  const { image_url, description, name } = item
+  const deleteItem = useBeerStore((state) => state.deleteRenderElement)
+  const { image_url, description, name, id } = item
 
   function handleClick (e: MouseEvent) {
     e.preventDefault()
@@ -25,15 +27,15 @@ export const BeerListItem: FC<Props> = ({item}) => {
   }
 
   const handleMouseEnter = () => {
-    setIsHover(true);
- };
+      setIsHover(true);
+  };
 
- const handleMouseLeave = () => {
-    setIsHover(false);
- };
+  const handleMouseLeave = () => {
+      setIsHover(false);
+  };
 
   function handleDelete () {
-    console.log('delete')
+    deleteItem(id)
   }
 
   return (
