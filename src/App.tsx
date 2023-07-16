@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useBeerStore } from './store';
+import { BeerList, Container, Section } from './components';
 
 function App() {
+
+  const fetchBeerList = useBeerStore((state) => state.fetchBeerList)
+  const beerList = useBeerStore((state) => state.beerList)
+  const page = useBeerStore((state) => state.page)
+  const loading = useBeerStore((state) => state.loading)
+  const hasErrors = useBeerStore((state) => state.hasErrors)
+
+  useEffect(() => {
+    const get = async () => {
+      await fetchBeerList(page)
+    }
+    get()
+  }, [page, fetchBeerList])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Section>
+        {beerList && <BeerList list={beerList}/>}
+        {hasErrors && <p>Opps..</p>}
+        {loading && <p>loading...</p>}
+      </Section>
+    </Container>
   );
 }
 
