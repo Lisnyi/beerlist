@@ -1,5 +1,6 @@
 import { FC, MouseEvent, useState } from 'react'
 import { useBeerStore } from '../../../store'
+import { RecipesModal } from '../../RecipesModal'
 import type { Beer } from '../../../types'
 import Checkmark from '../../../assets/checkmark.svg'
 import Delete from '../../../assets/delete.svg'
@@ -13,8 +14,13 @@ export const BeerListItem: FC<Props> = ({item}) => {
   
   const [selected, setSelected] = useState(false)
   const [isHover, setIsHover] = useState(false)
+  const [ isOpen, setIsOpen ] = useState(false)
   const deleteItem = useBeerStore((state) => state.deleteRenderElement)
   const { image_url, description, name, id } = item
+
+  function toggleModal(){
+    setIsOpen(!isOpen)
+  }
 
   function handleClick (e: MouseEvent) {
     e.preventDefault()
@@ -22,7 +28,7 @@ export const BeerListItem: FC<Props> = ({item}) => {
       setSelected(!selected)
     }
     else {
-
+      toggleModal()
     }
   }
 
@@ -64,6 +70,7 @@ export const BeerListItem: FC<Props> = ({item}) => {
       </div>
       <h2 className='Card-name'>{name}</h2>
       <p className='Card-description'>Description: {description}</p>
+      <RecipesModal isOpen={isOpen} onClose={toggleModal} item={item}/>
     </li>
   )
 }

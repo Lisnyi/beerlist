@@ -30,16 +30,16 @@ function App() {
     }
   }, [renderList, beerList, renderedElementsCounter, setRenderList, page, increasePage])
 
-  function updateCount () {
-    setRenderedElementsCounter(0)
-    increasePage()
-  }
-
   useEffect(() => {
+    const updateCount = () => {
+      setRenderedElementsCounter(0)
+      increasePage()
+    }
+
     if (renderedElementsCounter === 25) {
       updateCount()
     }
-  }, [renderedElementsCounter])
+  }, [renderedElementsCounter, increasePage])
 
   return (
     <Container>

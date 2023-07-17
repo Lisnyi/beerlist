@@ -1,0 +1,74 @@
+.Modal {
+    width: 700px;
+    height: 500px;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    padding: 20px;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #59575a;
+  }
+
+  .Modal-title {
+    margin: 0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .Modal-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .Modal-image-box {
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Modal-image {
+    width: 100px;
+  }
+
+  .Modal-ingredients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+    gap: 5px;
+  }
+
+  .Modal-ingredients-title {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .Modal-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: grey;
+    color: white;
+    bottom: 15px;
+    left: 300px;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+
+    &:hover, &:focus {
+        background-color: black;
+        color: white;
+    }
+  }
