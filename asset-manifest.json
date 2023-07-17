@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/beerlist/static/css/main.ce76c000.css",
+    "main.js": "/beerlist/static/js/main.1d5f8fef.js",
+    "index.html": "/beerlist/index.html",
+    "static/media/delete.svg": "/beerlist/static/media/delete.0dd7e6c0ab47f8e879887232e40cc770.svg",
+    "static/media/checkmark.svg": "/beerlist/static/media/checkmark.ddcef970a3e510c3a8e40620ddc8bfef.svg",
+    "main.ce76c000.css.map": "/beerlist/static/css/main.ce76c000.css.map",
+    "main.1d5f8fef.js.map": "/beerlist/static/js/main.1d5f8fef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce76c000.css",
+    "static/js/main.1d5f8fef.js"
+  ]
+}
